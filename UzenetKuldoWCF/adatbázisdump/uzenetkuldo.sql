@@ -1,0 +1,53 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2026. Okt 06. 08:04
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.0.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Adatbázis: `uzenetkuldo`
+--
+CREATE DATABASE IF NOT EXISTS `uzenetkuldo` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE `uzenetkuldo`;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `uzenet`
+--
+
+DROP TABLE IF EXISTS `uzenet`;
+CREATE TABLE `uzenet` (
+  `Id` int(11) NOT NULL,
+  `Szoveg` text NOT NULL,
+  `KüldesiIdo` datetime NOT NULL,
+  `UzenetTipus` varchar(8) NOT NULL,
+  `Telefon` varchar(16) NOT NULL,
+  `Email` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `uzenet`
+--
+
+INSERT INTO `uzenet` (`Id`, `Szoveg`, `KüldesiIdo`, `UzenetTipus`, `Telefon`, `Email`) VALUES
+(2, 'Adategyeztetés céljából kérjük, keresse fel honlapunkat: https://www.ceghonlap.hu', '2026-08-27 19:05:38', 'Email', '', 'ugyfelcim1@mail.hu'),
+(4, 'Vigyázat, csalók!!!\r\nIsmeretlenek a cégünk nevével visszaélve bizalmas információk (jelszavak, szerződésadatok) megadását kérhetik öntől teefonon vagy emailben. Felhívjuk figyelmét, hogy ilyen információt senkitől sem kérünk, ezért ne dőljön be a csalóknak!', '2026-09-13 10:07:19', 'Email', '', 'kiemeltugyfel@mail.com');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
